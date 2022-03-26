@@ -1,0 +1,146 @@
+<app-menu></app-menu>
+<div class="w-100 row mx-0 z-100" style="margin-top: 60px">
+  <app-perfil-home class="m-0 p-0"></app-perfil-home>
+  <div class="col-2 m-0 p-0 min-900"></div>
+
+  <div
+    class="
+      max-900-perfil
+      w-100
+      bg-purpura
+      m-0
+      p-0
+      py-3
+      d-flex
+      position-relative
+    "
+  >
+    <span
+      (click)="Inputimagen.click()"
+      *ngIf="!imagen"
+      class="material-icons p-0 d-flex my-auto white select-pointer"
+    >
+      account_circle
+    </span>
+    <input #Inputimagen type="file" hidden />
+    <img
+      (click)="Inputimagen.click()"
+      class="imagenPerfil d-none rounded-circle mt-1 me-1"
+      #spanImagen
+    />
+    <h4
+      class="my-auto white ps-3 segoepr text-nowrap ellipsis"
+      style="overflow-wrap: break-word"
+    >
+      {{ nameUser }}
+      <small class="d-block size-small">Desarrollador web</small>
+    </h4>
+    <!-- <button
+      class="myBtn-perfil position-absolute centrar-fixed-v roboto size-parrafo"
+    >
+      Agregar
+    </button> -->
+  </div>
+
+  <div id="max-600-post" class="col-7 m-0 p-0 h-100 min-900-full">
+    <div class="config">
+      <div class="d-flex mx-auto justify-content-center">
+        <a
+          routerLink="/perfil"
+          [ngClass]="{ 'link-activo': !url }"
+          class="mx-3 size-opciones dark link-hover text-decoration-none roboto"
+          >Post</a
+        >
+        <a
+          routerLink="/perfil/amigos"
+          routerLinkActive="link-activo"
+          class="mx-3 size-opciones dark link-hover text-decoration-none roboto"
+          >Amigos</a
+        >
+        <a
+          routerLink="/perfil/configuracion"
+          routerLinkActive="link-activo"
+          class="mx-3 size-opciones dark link-hover text-decoration-none roboto"
+          >configuracion</a
+        >
+        <a
+          routerLink="/perfil/sobre-mi"
+          routerLinkActive="link-activo"
+          class="mx-3 size-opciones dark link-hover text-decoration-none roboto"
+          >sobre mi</a
+        >
+      </div>
+    </div>
+
+    <div class="max-600" *ngIf="!url">
+      <div
+        class="
+          mb-4
+          select-off
+          mx-auto
+          d-block
+          sombra
+          rounded-3
+          max-600-post
+          p-4
+          div-archivo
+        "
+        style="width: 100%"
+      >
+        <div
+          #texto
+          data-placeholder="Escribir post"
+          contenteditable="true"
+          spellcheck="false"
+          placeholder="Escribir post"
+          aria-label="asdasdasd"
+          class="gris-claro editable outline-off mb-3 h-fit"
+        ></div>
+
+        <div id="imagen"></div>
+        <div class="opciones w-100 p-0 m-0 d-flex justify-content-end">
+          <span
+            class="material-icons-outlined fs-2 me-2 purpura select-pointer"
+            (click)="clickArchivo(archivo)"
+          >
+            image
+          </span>
+          <button
+            [disabled]="postElse"
+            class="size-small m-0 myBtn roboto"
+            (click)="sendFile()"
+          >
+            Publicar
+          </button>
+          <input type="file" name="" hidden #archivo id="selectArchivo" />
+        </div>
+      </div>
+      <app-post *ngFor="let post of posts" [post]="post"></app-post>
+      <div class="mt-3" *ngIf="!posts?.length"><app-no-post></app-no-post></div>
+    </div>
+
+    <div class="max-600" *ngIf="url === 'configuracion'">
+      <app-configuraciones></app-configuraciones>
+    </div>
+
+    <div class="max-600" *ngIf="url === 'sobre-mi'">
+      <app-sobre-mi></app-sobre-mi>
+    </div>
+
+    <div class="max-600-post" *ngIf="url === 'amigos'">
+      <app-amigos></app-amigos>
+    </div>
+  </div>
+
+  <div
+    id="divChat"
+    class="col-3 position-fixed m-0 p-0 pt-2 select-off min-900"
+    style="right: 0"
+  >
+    <app-amigos-activos *ngIf="!selectAmigo.displayNone"></app-amigos-activos>
+    <app-amigo-activo-mensajes
+      *ngIf="selectAmigo.displayNone"
+      (myClick)="log($event)"
+    ></app-amigo-activo-mensajes>
+  </div>
+</div>

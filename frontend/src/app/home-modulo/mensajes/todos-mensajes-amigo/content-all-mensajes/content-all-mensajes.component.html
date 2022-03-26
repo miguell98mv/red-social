@@ -1,0 +1,185 @@
+<div
+  class="
+    mx-auto
+    h-100
+    d-block
+    sombra
+    position-relative
+    rounded-3
+    alturaPantalla
+    max-600-allMensajes
+  "
+  style="width: 100%"
+>
+  <div
+    class="mensajes d-block position-absolute bg-purpura rounded-top"
+    style="width: 100%"
+  >
+    <div class="w-100 d-block atras">
+      <h6
+        (click)="atras()"
+        class="
+          size-opciones
+          w-100
+          px-3
+          py-2
+          roboto
+          d-flex
+          align-items-center
+          white
+          select-pointer
+        "
+      >
+        <span
+          class="material-icons h-fit position-relative"
+          style="margin-bottom: -2px"
+        >
+          chevron_left
+        </span>
+        atras
+      </h6>
+    </div>
+    <div
+      class="rounded-top d-flex m-0 px-3 position-relative"
+      style="width: 100%"
+    >
+      <span
+        *ngIf="!imagen"
+        class="material-icons position-relative"
+        style="font-size: 50px"
+      >
+        account_circle
+      </span>
+      <img
+        class="d-none rounded-circle mt-1 me-1"
+        style="width: 52px !important; height: 42px !important"
+        #spanImagen
+      />
+      <p
+        class="
+          text-nowrap
+          ellipsis
+          segoepr
+          white
+          size-parrafo
+          fw-bold
+          select-text
+          my-auto
+          ms-2
+          h-fit
+          pt-2
+        "
+        style="width: 100%"
+      >
+        {{ nameUser }}
+        <small class="d-block size-small segoepr claro"> Activo</small>
+      </p>
+    </div>
+  </div>
+
+  <section
+    class="scroll text-center"
+    style="
+      height: 100%;
+      overflow-x: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    "
+  >
+    <div *ngIf="numMensajes">
+      <div
+        *ngFor="let mensaje of mensajes; last as esUltimo"
+        class="h-fit my-3 p-3 rounded-3 sombra-menor mx-auto"
+        style="width: 90%"
+        [ngClass]="{ ' bg-resp': usuario.datos.id === mensaje.forUser }"
+      >
+        <p
+          class="h-fit m-0 p-0 size-comentarios gris-claro segoepr text-start"
+          style="overflow-wrap: break-word"
+        >
+          {{ mensaje.mensaje }}
+        </p>
+        <small
+          class="
+            pt-3
+            size-small
+            gris-fecha
+            roboto
+            d-flex
+            justify-content-end
+            align-content-end
+          "
+          >{{ mensaje.fecha }}</small
+        >
+        <div *ngIf="esUltimo">{{ scrollInto() }}</div>
+      </div>
+    </div>
+    <section
+      *ngIf="!numMensajes"
+      style="height: 100%"
+      class="d-flex flex-column align-content-center justify-content-center"
+    >
+      <p
+        class="d-block mx-auto segoepr gris-claro size-nombres mt-3 text-center"
+        style="width: 80%"
+      >
+        No hay mensajes
+      </p>
+    </section>
+
+    <div
+      class="d-flex h-fit my-3 rounded-3 mx-auto mt-5"
+      style="width: 90%; margin-top: auto !important"
+    >
+      <div class="d-b position-relative h-fit mx-auto" style="width: 100%">
+        <div class="d-block position-relative">
+          <form
+            #formulario
+            spellcheck="true"
+            autocomplete="off"
+            [formGroup]="forms"
+            novalidate
+            (ngSubmit)="addMensaje(formulario)"
+          >
+            <input
+              name="mensaje"
+              formControlName="mensaje"
+              #ultimoMensajes
+              id="ultimoMensajes"
+              type="text"
+              class="
+                py-2
+                mb-2
+                h-50
+                w-100
+                border-0 border-bottom
+                my-auto
+                select-on
+                outline-off
+              "
+              placeholder="Escribir mensaje"
+              style="
+                border-color: #3e3e3e !important;
+                outline: none;
+                padding-right: 40px !important;
+              "
+            />
+            <span
+              (click)="addMensaje(formulario)"
+              class="material-icons fs-2 select-pointer"
+              style="
+                position: absolute;
+                bottom: 20px;
+                margin-left: -30px;
+                margin-bottom: -7px;
+              "
+            >
+              send
+            </span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

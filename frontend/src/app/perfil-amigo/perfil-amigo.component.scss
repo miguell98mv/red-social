@@ -1,0 +1,149 @@
+.max-900-perfil {
+  display: none !important;
+}
+
+.input-post {
+  font-family: "Comfortaa" !important;
+  color: #5e5c5c !important;
+}
+
+#max-600-post {
+  padding-left: 1.7rem !important;
+  padding-right: 1.7rem !important;
+}
+
+.max-600-post img {
+  width: 92% !important;
+  border-radius: 5px !important;
+}
+
+.editable:empty:before {
+  content: attr(data-placeholder);
+  color: #5e5c5c;
+  cursor: text;
+}
+
+.editable {
+  width: 100%;
+}
+
+.config div {
+  width: 90%;
+}
+
+.config {
+  padding: 1.2rem 0;
+}
+
+@media screen and (max-width: 900px) {
+  .max-900-perfil {
+    width: 250px;
+    padding-left: 1.5rem !important;
+    display: flex !important;
+  }
+
+  .max-900-perfil span {
+    font-size: 80px;
+  }
+
+  .max-900-perfil h4 {
+    width: 250px;
+    font-size: 1rem !important;
+  }
+
+  .min-900 {
+    display: none !important;
+  }
+
+  .min-900-full {
+    width: 100%;
+  }
+
+  .myBtn-perfil {
+    right: 30px;
+  }
+
+  .imagen {
+    border-radius: 10px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .config {
+    border-bottom: 1px solid #d1d1d1;
+  }
+
+  .config div {
+    width: 100%;
+  }
+
+  .config div a {
+    margin: 0 0.8rem !important;
+  }
+
+  .editable {
+    width: 90%;
+    margin: auto;
+  }
+
+  .imagen {
+    border-radius: 0px !important;
+  }
+
+  .max-600-post {
+    width: 100% !important;
+    box-shadow: none !important;
+    display: block !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #d1d1d1;
+  }
+
+  .div-archivo {
+    margin-top: 0 !important;
+    padding: 15px 0 !important;
+  }
+
+  .div-archivo input {
+    display: block;
+    width: 90% !important;
+    margin: auto !important;
+  }
+
+  .div-archivo .opciones {
+    width: 90% !important;
+    margin: auto !important;
+  }
+
+  .max-600-post img {
+    border-radius: 0 !important;
+    width: 100% !important;
+  }
+
+  #max-600-post {
+    padding: 0 !important;
+  }
+
+  .max-600 {
+    padding-bottom: 28px !important;
+  }
+
+  .max-900-perfil {
+    padding-left: 0.5rem !important;
+    display: flex !important;
+  }
+
+  .max-900-perfil h4 {
+    width: 180px;
+    font-size: 1rem !important;
+  }
+
+  .max-900-perfil span {
+    font-size: 60px;
+  }
+
+  .myBtn-perfil {
+    right: 1rem;
+  }
+}

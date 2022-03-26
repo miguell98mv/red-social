@@ -1,0 +1,22 @@
+<div
+  class="
+    max-600-amigos
+    py-3
+    mb-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    scroll
+    alturaPantalla
+  "
+  style="width: 100%; overflow-x: hidden !important"
+>
+  <h5 class="size-opciones gris roboto mx-auto">
+    Tienes {{ amigos?.length || "0" }} amigos
+  </h5>
+  <app-section-amigos
+    *ngFor="let amigo of amigos"
+    [amigo]="amigo"
+  ></app-section-amigos>
+</div>

@@ -1,0 +1,20 @@
+@media screen and (max-width: 600px) {
+  .max-600-amigos-opcionales {
+    width: 100% !important;
+    box-shadow: none !important;
+    display: block !important;
+    padding: 0 !important;
+    padding-top: 10px !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    border-bottom: 2px solid #d1d1d1;
+  }
+
+  .max-600-amigo {
+    width: 80px !important;
+  }
+
+  .max-600-amigo span {
+    font-size: 70px !important;
+  }
+}

@@ -1,0 +1,133 @@
+<app-menu></app-menu>
+<div class="w-100 row mx-0 z-100" style="margin-top: 60px">
+  <app-perfil-home class="m-0 p-0"></app-perfil-home>
+  <div class="col-2 m-0 p-0 min-900"></div>
+  <div
+    id="max-600-post"
+    class="col-7 m-0 p-0 pt-4 h-100 min-900-full"
+    *ngIf="url === 'home' && numberPost"
+    infiniteScroll
+    (scrolled)="onScroll()"
+  >
+    <div *ngFor="let post of postHome; last as ultimo">
+      <app-post [post]="post"></app-post>
+    </div>
+  </div>
+
+  <div
+    class="col-7 m-0 p-0 pt-4 min-900-full"
+    style="padding-left: 1.7rem !important; padding-right: 1.7rem !important"
+    *ngIf="url === 'home' && !numberPost"
+  >
+    <app-no-post></app-no-post>
+  </div>
+
+  <div
+    class="col-7 m-0 p-0 pt-4 min-900-full alturaPantalla"
+    style="padding-left: 1.7rem !important; padding-right: 1.7rem !important"
+    *ngIf="url === 'search'"
+  >
+    <app-buscar></app-buscar>
+  </div>
+  <div
+    class="col-7 m-0 p-0 pt-4 min-900-full alturaPantalla"
+    *ngIf="url === 'notificaciones'"
+    style="padding-left: 1.7rem !important; padding-right: 1.7rem !important"
+  >
+    <app-notificaciones></app-notificaciones>
+  </div>
+  <div
+    class="col-7 m-0 p-0 min-900-full alturaPantallaSolicitudes"
+    style="padding-left: 1.7rem !important; padding-right: 1.7rem !important"
+    *ngIf="url === 'solicitudes'"
+  >
+    <app-all-solicitudes></app-all-solicitudes>
+  </div>
+  <div
+    class="
+      divMensajes
+      alturaPantalla
+      min-900-divMensajes
+      col-4
+      m-0
+      p-0
+      pt-4
+      max-600-post
+    "
+    *ngIf="url === 'mensajes'"
+    style="padding-left: 1.7rem !important; padding-right: 1.7rem !important"
+  >
+    <app-mensajes></app-mensajes>
+  </div>
+  <div
+    class="
+      divAllMensajes
+      alturaPantalla
+      min-900-divAllMensajes
+      col-6
+      m-0
+      p-0
+      pt-4
+      min-600
+    "
+    *ngIf="url === 'mensajes'"
+    style="padding-right: 1.7rem !important"
+  >
+    <app-todos-mensajes-amigo></app-todos-mensajes-amigo>
+  </div>
+
+  <div
+    class="
+      divMensajes
+      alturaPantalla
+      min-600-divMensajes
+      col-4
+      m-0
+      p-0
+      max-600-post
+    "
+    *ngIf="url === 'mensajes' && !selectAmigo.displayAllMensajes"
+    style="padding-left: 1.7rem !important; padding-right: 1.7rem !important"
+  >
+    <app-mensajes></app-mensajes>
+  </div>
+  <div
+    [ngStyle]="{ height: tamano }"
+    class="divAllMensajes min-600-divAllMensajes col-6 m-0 p-0 pt-4 min-600"
+    *ngIf="url === 'mensajes' && selectAmigo.displayAllMensajes"
+  >
+    <app-todos-mensajes-amigo></app-todos-mensajes-amigo>
+  </div>
+  <div
+    id="divChat"
+    class="col-3 position-fixed m-0 p-0 pt-2 select-off min-900"
+    style="right: 0"
+    *ngIf="
+      url === 'home' ||
+      url === 'search' ||
+      url === 'notificaciones' ||
+      url === 'solicitudes'
+    "
+  >
+    <app-amigos-activos *ngIf="!selectAmigo.displayNone"></app-amigos-activos>
+    <app-amigo-activo-mensajes
+      *ngIf="selectAmigo.displayNone"
+      (myClick)="log($event)"
+    ></app-amigo-activo-mensajes>
+  </div>
+
+  <div class="col-7 m-0 p-0 min-900-full" *ngIf="url === 'amigos-activos'">
+    <div
+      class="pt-4"
+      style="padding-left: 1.7rem !important; padding-right: 1.7rem !important"
+      *ngIf="!selectAmigo.displayNone"
+    >
+      <app-amigos-activos-600></app-amigos-activos-600>
+    </div>
+
+    <app-amigo-activo-mensajes-600
+      *ngIf="selectAmigo.displayNone"
+      (myClick)="log($event)"
+    ></app-amigo-activo-mensajes-600>
+  </div>
+</div>

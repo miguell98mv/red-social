@@ -1,0 +1,9 @@
+@media screen and (max-width: 600px) {
+  .max-600-un-comentario p {
+    width: 100% !important;
+    word-wrap: normal;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    display: block;
+  }
+}

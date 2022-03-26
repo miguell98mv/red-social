@@ -1,0 +1,362 @@
+<div
+  #appPost
+  class="
+    position-relative
+    configuracion
+    select-off
+    mb-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Ubicacion
+  </h6>
+  <input
+    #ubicacion
+    type="text"
+    disabled
+    class="outline-off border-0 d-flex mx-auto"
+    style="width: 90%"
+    placeholder="{{ usuario?.datos?.ubicacion || 'sin asignar' }}"
+  />
+  <button
+    #cambiarUbicacion
+    (click)="
+      showEdit(
+        ubicacion,
+        cambiarUbicacion,
+        cancelarUbicacion,
+        guardarUbicacion,
+        'ubicacion'
+      )
+    "
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Cambiar
+  </button>
+  <button
+    (click)="
+      cancelar(
+        ubicacion,
+        cambiarUbicacion,
+        cancelarUbicacion,
+        guardarUbicacion,
+        'ubicacion'
+      )
+    "
+    #cancelarUbicacion
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 90px"
+  >
+    Cancelar
+  </button>
+  <button
+    (click)="
+      guardar(
+        ubicacion,
+        cambiarUbicacion,
+        cancelarUbicacion,
+        guardarUbicacion,
+        'ubicacion'
+      )
+    "
+    #guardarUbicacion
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Guardar
+  </button>
+</div>
+
+<div
+  #appPost
+  class="
+    position-relative
+    configuracion
+    select-off
+    my-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Telefono
+  </h6>
+  <input
+    #telefono
+    type="text"
+    disabled
+    class="outline-off border-0 d-flex mx-auto"
+    style="width: 90%"
+    placeholder="{{ usuario?.datos?.telefono || 'sin asignar' }}"
+  />
+  <button
+    #cambiarTelefono
+    (click)="
+      showEdit(
+        telefono,
+        cambiarTelefono,
+        cancelarTelefono,
+        guardarTelefono,
+        'telefono'
+      )
+    "
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Cambiar
+  </button>
+  <button
+    (click)="
+      cancelar(
+        telefono,
+        cambiarTelefono,
+        cancelarTelefono,
+        guardarTelefono,
+        'telefono'
+      )
+    "
+    #cancelarTelefono
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 90px"
+  >
+    Cancelar
+  </button>
+  <button
+    (click)="
+      guardar(
+        telefono,
+        cambiarTelefono,
+        cancelarTelefono,
+        guardarTelefono,
+        'telefono'
+      )
+    "
+    #guardarTelefono
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Guardar
+  </button>
+</div>
+
+<div
+  #appPost
+  class="
+    position-relative
+    configuracion
+    select-off
+    my-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Profesion
+  </h6>
+  <input
+    #profesion
+    type="text"
+    disabled
+    class="outline-off border-0 d-flex mx-auto"
+    style="width: 90%"
+    placeholder="{{ usuario?.datos?.profesion || 'sin asignar' }}"
+  />
+  <button
+    #cambiarProfesion
+    (click)="
+      showEdit(
+        profesion,
+        cambiarProfesion,
+        cancelarProfesion,
+        guardarProfesion,
+        'profesion'
+      )
+    "
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Cambiar
+  </button>
+  <button
+    (click)="
+      cancelar(
+        profesion,
+        cambiarProfesion,
+        cancelarProfesion,
+        guardarProfesion,
+        'profesion'
+      )
+    "
+    #cancelarProfesion
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 90px"
+  >
+    Cancelar
+  </button>
+  <button
+    (click)="
+      guardar(
+        profesion,
+        cambiarProfesion,
+        cancelarProfesion,
+        guardarProfesion,
+        'profesion'
+      )
+    "
+    #guardarProfesion
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Guardar
+  </button>
+</div>
+
+<div
+  #appPost
+  class="
+    position-relative
+    configuracion
+    select-off
+    my-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Pasatiempos
+  </h6>
+  <input
+    #pasatiempos
+    type="text"
+    disabled
+    class="outline-off border-0 d-flex mx-auto"
+    style="width: 90%"
+    placeholder="{{ usuario?.datos?.que_te_gusta || 'sin asignar' }}"
+  />
+  <button
+    #cambiarPasatiempos
+    (click)="
+      showEdit(
+        pasatiempos,
+        cambiarPasatiempos,
+        cancelarPasatiempos,
+        guardarPasatiempos,
+        'pasatiempos'
+      )
+    "
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Cambiar
+  </button>
+  <button
+    (click)="
+      cancelar(
+        pasatiempos,
+        cambiarPasatiempos,
+        cancelarPasatiempos,
+        guardarPasatiempos,
+        'pasatiempos'
+      )
+    "
+    #cancelarPasatiempos
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 90px"
+  >
+    Cancelar
+  </button>
+  <button
+    (click)="
+      guardar(
+        pasatiempos,
+        cambiarPasatiempos,
+        cancelarPasatiempos,
+        guardarPasatiempos,
+        'que_te_gusta'
+      )
+    "
+    #guardarPasatiempos
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Guardar
+  </button>
+</div>
+
+<div
+  #appPost
+  class="
+    ultima-config
+    position-relative
+    configuracion
+    select-off
+    my-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Genero de musica preferido
+  </h6>
+  <input
+    #musica
+    type="text"
+    disabled
+    class="outline-off border-0 d-flex mx-auto"
+    style="width: 90%"
+    placeholder="{{ usuario?.datos?.genero_musical || 'sin asignar' }}"
+  />
+  <button
+    #cambiarMusica
+    (click)="
+      showEdit(musica, cambiarMusica, cancelarMusica, guardarMusica, 'musica')
+    "
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Cambiar
+  </button>
+  <button
+    (click)="
+      cancelar(musica, cambiarMusica, cancelarMusica, guardarMusica, 'musica')
+    "
+    #cancelarMusica
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 90px"
+  >
+    Cancelar
+  </button>
+  <button
+    (click)="
+      guardar(musica, cambiarMusica, cancelarMusica, guardarMusica, 'musica')
+    "
+    #guardarMusica
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Guardar
+  </button>
+</div>

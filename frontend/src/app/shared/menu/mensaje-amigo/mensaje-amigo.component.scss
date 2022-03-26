@@ -1,0 +1,12 @@
+.max-600-mensajesAmigo {
+  width: 90% !important;
+  margin: auto !important;
+}
+
+@media screen and (max-width: 600px) {
+  .max-600-mensajesAmigo {
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-top: 10px !important;
+  }
+}

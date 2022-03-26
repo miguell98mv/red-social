@@ -1,0 +1,48 @@
+.my-input {
+  border: 1px #cecece solid;
+  border-radius: 10px;
+  outline: none;
+}
+
+.max-600-allMensajes {
+  padding-top: 74px !important;
+}
+
+.max-600-allMensajes .mensajes {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+  margin-top: -74px !important;
+}
+
+.max-600-allMensajes .mensajes .atras {
+  display: none !important;
+}
+
+@media screen and (max-width: 600px) {
+  .max-600-allMensajes {
+    width: 100% !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .max-600-allMensajes .mensajes {
+    width: 100%;
+    border-radius: 0 !important;
+  }
+
+  .max-600-allMensajes .mensajes .atras {
+    display: block !important;
+  }
+
+  .max-600-allMensajes {
+    padding-top: 116px !important;
+  }
+
+  .max-600-allMensajes .mensajes {
+    margin-top: -116px !important;
+  }
+
+  .max-600-allMensajes .mensajes div h6 span {
+    font-size: 20px;
+  }
+}

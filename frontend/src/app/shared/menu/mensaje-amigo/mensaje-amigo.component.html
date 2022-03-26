@@ -1,0 +1,52 @@
+<div
+  (click)="showDivAllMensajes(chatAmigo.chat)"
+  class="
+    d-flex
+    py-1
+    position-relative
+    overflow-visible
+    select-pointer
+    max-600-mensajesAmigo
+  "
+>
+  <span
+    [ngClass]="{ new: chatAmigo.visto }"
+    *ngIf="!imagen"
+    class="material-icons position-relative"
+    style="font-size: 40px"
+  >
+    account_circle
+  </span>
+  <img
+    class="mx-auto mt-1 ms-1 me-1 d-none rounded-circle"
+    style="width: 38px; height: 33px"
+    #spanImagen
+  />
+  <p
+    class="
+      pe-4
+      overflow-hidden
+      text-nowrap
+      ellipsis
+      segoepr
+      dark
+      size-small
+      fw-bold
+      my-auto
+      ms-2
+      h-fit
+    "
+    style="width: 200px; overflow-wrap: break-word !important"
+    *ngIf="nameUser | async as nombre"
+  >
+    {{ nombre[0]?.nameUser }}
+    <small class="d-block gris-claro text-nowrap ellipsis">
+      {{ chatAmigo.mensaje }}</small
+    >
+  </p>
+  <div
+    *ngIf="isActivo | async as isActivo"
+    [ngClass]="{ activo: isActivo[0].activo }"
+    class="px-1"
+  ></div>
+</div>

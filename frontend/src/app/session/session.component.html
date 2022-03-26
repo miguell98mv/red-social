@@ -1,0 +1,391 @@
+<div
+  #message
+  class="position-fixed z-500 select-off"
+  style="
+    display: none;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+  "
+>
+  <div
+    class="
+      d-flex
+      flex-column
+      m-auto
+      bg-white
+      sombra
+      rounded
+      segoepr
+      size-opciones
+      fw-bold
+      dark
+      p-4
+    "
+    style="color: rgb(61, 187, 55)"
+  >
+    Su cuenta se a creado con exito
+    <button class="myBtn-success mt-3 fw-bold" (click)="displayNone(message)">
+      Aceptar
+    </button>
+  </div>
+</div>
+
+<div [ngClass]="{ 'd-none': session }" class="main">
+  <section class="present">
+    <div>
+      <h5 class="display-6 segoepr white">ChatFriends</h5>
+      <p class="white segoepr">
+        Conoce nuevas personas en tu ubicacion y habla con ellos cuando quieros
+        y donde quieras
+      </p>
+      <button
+        (click)="installByUser()"
+        *ngIf="installEvent"
+        class="mt-3 myBtn-outline-white segoepr"
+      >
+        Instalar aplicacion
+      </button>
+    </div>
+  </section>
+  <section class="session">
+    <div class="sombra">
+      <h4 class="segoepr dark text-center mt-4 mb-5">Crear una cuenta</h4>
+      <p
+        #errores
+        class="mb-3 segoepr size-opciones fw-bold"
+        style="
+          width: 70%;
+          margin: auto;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          color: rgb(230, 61, 61);
+        "
+      ></p>
+      <form
+        #formulario
+        [formGroup]="sessionUser"
+        autocomplete="off"
+        (ngSubmit)="sessionAction('crear usuario')"
+        novalidate
+        class="position-relative"
+      >
+        <input
+          name="nameUser"
+          formControlName="nameUser"
+          type="text"
+          class="d-flex ps-3 py-2 mx-auto"
+          placeholder="Nombre de usuario"
+          style="width: 70%; border-radius: 10px"
+        />
+        <input
+          name="nombre"
+          formControlName="nombre"
+          type="text"
+          class="mt d-flex ps-3 py-2 mx-auto"
+          placeholder="Nombre"
+          style="width: 70%; border-radius: 10px"
+        />
+        <input
+          name="apellido"
+          formControlName="apellido"
+          type="text"
+          class="mt d-flex ps-3 py-2 mx-auto"
+          placeholder="Apellido"
+          style="width: 70%; border-radius: 10px"
+        />
+        <input
+          name="email"
+          formControlName="email"
+          type="email"
+          class="mt d-flex ps-3 py-2 mx-auto"
+          placeholder="Email"
+          style="width: 70%; border-radius: 10px"
+        />
+        <input
+          name="password"
+          formControlName="password"
+          type="password"
+          class="mt d-flex ps-3 py-2 mx-auto"
+          placeholder="Contraseña"
+          style="width: 70%; border-radius: 10px"
+        />
+        <button
+          type="submit"
+          class="
+            d-flex
+            mt-5
+            segoepr
+            myBtn
+            mx-auto
+            justify-content-center
+            position-relative
+          "
+          style="width: 70%"
+        >
+          Aceptar
+        </button>
+        <small
+          #tengoCuenta
+          class="d-block dark roboto size-nombres mt-2 mb-5 select-pointer"
+          style="width: 70%; margin: auto"
+          >Ya tengo cuenta</small
+        >
+      </form>
+    </div>
+  </section>
+</div>
+
+<div [ngClass]="{ 'd-none': !session }" class="main">
+  <section class="present">
+    <div>
+      <h5 class="display-6 segoepr white">ChatFriends</h5>
+      <p class="white segoepr">
+        Conoce nuevas personas en tu ubicacion y habla con ellos cuando quieros
+        y donde quieras
+      </p>
+      <button
+        (click)="installByUser()"
+        *ngIf="installEvent"
+        class="mt-3 myBtn-outline-white segoepr"
+      >
+        Instalar aplicacion
+      </button>
+    </div>
+  </section>
+  <section class="session">
+    <div class="sombra">
+      <h4 class="segoepr dark text-center mt-4 mb-5">Iniciar Session</h4>
+      <p
+        #errores
+        class="mb-3 segoepr size-opciones fw-bold"
+        style="
+          width: 70%;
+          margin: auto;
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          color: rgb(230, 61, 61);
+        "
+      ></p>
+      <form
+        #formulario
+        [formGroup]="sessionUser"
+        autocomplete="off"
+        (ngSubmit)="sessionAction('iniciar session')"
+        novalidate
+      >
+        <input
+          name="email"
+          formControlName="email"
+          type="email"
+          class="mt d-flex ps-3 py-2 mx-auto"
+          placeholder="Email"
+          style="width: 70%; border-radius: 10px"
+        />
+        <input
+          name="password"
+          formControlName="password"
+          type="password"
+          class="mt d-flex ps-3 py-2 mx-auto"
+          placeholder="Contraseña"
+          style="width: 70%; border-radius: 10px"
+        />
+        <button
+          type="submit"
+          class="
+            d-flex
+            mt-5
+            segoepr
+            myBtn
+            mx-auto
+            justify-content-center
+            position-relative
+          "
+          style="width: 70%"
+        >
+          Aceptar
+        </button>
+        <small
+          #tengoCuenta
+          class="d-block dark roboto size-nombres mt-2 mb-5 select-pointer"
+          style="width: 70%; margin: auto"
+          >Crear cuenta</small
+        >
+      </form>
+    </div>
+  </section>
+</div>
+
+<div [ngClass]="{ 'd-none': session }" class="main-movil">
+  <section class="present-movil">
+    <div class="position-relative">
+      <button
+        (click)="installByUser()"
+        *ngIf="installEvent"
+        class="mt-3 segoepr myBtn-outline-white"
+        style="position: absolute; right: 20px"
+      >
+        Instalar app
+      </button>
+      <h5 class="display-2 segoepr white">ChatFriends</h5>
+    </div>
+  </section>
+  <section class="session pb-3">
+    <h4 class="segoepr dark text-center mt-4 mb-5">Crear una cuenta</h4>
+    <p
+      #errores
+      class="mb-3 segoepr size-opciones fw-bold"
+      style="
+        width: 70%;
+        margin: auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        color: rgb(230, 61, 61);
+      "
+    ></p>
+    <form
+      #formulario
+      [formGroup]="sessionUser"
+      autocomplete="off"
+      (ngSubmit)="sessionAction('crear usuario')"
+      novalidate
+    >
+      <input
+        name="nameUser"
+        formControlName="nameUser"
+        type="text"
+        class="d-flex ps-3 py-2 mx-auto"
+        placeholder="Nombre de usuario"
+        style="width: 70%; border-radius: 10px"
+      />
+      <input
+        name="nombre"
+        formControlName="nombre"
+        type="text"
+        class="mt d-flex ps-3 py-2 mx-auto"
+        placeholder="Nombre"
+        style="width: 70%; border-radius: 10px"
+      />
+      <input
+        name="apellido"
+        formControlName="apellido"
+        type="text"
+        class="mt d-flex ps-3 py-2 mx-auto"
+        placeholder="Apellido"
+        style="width: 70%; border-radius: 10px"
+      />
+      <input
+        name="email"
+        formControlName="email"
+        type="email"
+        class="mt d-flex ps-3 py-2 mx-auto"
+        placeholder="Email"
+        style="width: 70%; border-radius: 10px"
+      />
+      <input
+        name="password"
+        formControlName="password"
+        type="password"
+        class="mt d-flex ps-3 py-2 mx-auto"
+        placeholder="Contraseña"
+        style="width: 70%; border-radius: 10px"
+      />
+      <button
+        type="submit"
+        class="
+          d-flex
+          mt-5
+          segoepr
+          myBtn
+          mx-auto
+          justify-content-center
+          position-relative
+        "
+        style="width: 70%"
+      >
+        Aceptar
+      </button>
+      <small
+        #tengoCuenta
+        class="d-block dark roboto size-nombres mt-2 mb-5 select-pointer"
+        style="width: 70%; margin: auto"
+        >Ya tengo cuenta</small
+      >
+    </form>
+  </section>
+</div>
+
+<div [ngClass]="{ 'd-none': !session }" class="main-movil">
+  <section class="present-movil">
+    <div class="position-relative">
+      <button
+        (click)="installByUser()"
+        *ngIf="installEvent"
+        class="mt-3 segoepr myBtn-outline-white"
+        style="position: absolute; right: 20px"
+      >
+        Instalar app
+      </button>
+      <h5 class="display-2 segoepr white">ChatFriends</h5>
+    </div>
+  </section>
+  <section class="session pb-3">
+    <h4 class="segoepr dark text-center mt-4 mb-5">Iniciar Session</h4>
+    <p
+      #errores
+      class="mb-3 segoepr size-opciones fw-bold"
+      style="
+        width: 70%;
+        margin: auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        color: rgb(230, 61, 61);
+      "
+    ></p>
+    <form
+      #formulario
+      [formGroup]="sessionUser"
+      autocomplete="off"
+      (ngSubmit)="sessionAction('iniciar session')"
+      novalidate
+    >
+      <input
+        name="email"
+        formControlName="email"
+        type="email"
+        class="mt d-flex ps-3 py-2 mx-auto"
+        placeholder="Email"
+        style="width: 70%; border-radius: 10px"
+      />
+      <input
+        name="password"
+        formControlName="password"
+        type="password"
+        class="mt d-flex ps-3 py-2 mx-auto"
+        placeholder="Contraseña"
+        style="width: 70%; border-radius: 10px"
+      />
+      <button
+        type="submit"
+        class="
+          d-flex
+          mt-5
+          segoepr
+          myBtn
+          mx-auto
+          justify-content-center
+          position-relative
+        "
+        style="width: 70%"
+      >
+        Aceptar
+      </button>
+      <small
+        #tengoCuenta
+        class="d-block dark roboto size-nombres mt-2 mb-5 select-pointer"
+        style="width: 70%; margin: auto"
+        >Crear Cuenta</small
+      >
+    </form>
+  </section>
+</div>

@@ -1,0 +1,84 @@
+<app-menu></app-menu>
+<div class="w-100 row mx-0 z-100" style="margin-top: 60px">
+  <app-perfil-home-amigo class="p-0 m-0"></app-perfil-home-amigo>
+  <div class="col-2 m-0 p-0 min-900"></div>
+
+  <div
+    class="
+      max-900-perfil
+      w-100
+      bg-purpura
+      m-0
+      p-0
+      py-3
+      d-flex
+      position-relative
+    "
+  >
+    <span class="material-icons p-0 d-flex my-auto white">
+      account_circle
+    </span>
+    <h4
+      class="my-auto white ps-3 segoepr text-nowrap ellipsis"
+      style="overflow-wrap: break-word"
+    >
+      {{ usuario?.nameUser }}
+      <small class="d-block size-small">{{ usuario?.profesion }}</small>
+    </h4>
+    <!-- <button
+      class="myBtn-perfil position-absolute centrar-fixed-v roboto size-parrafo"
+    >
+      Agregar
+    </button> -->
+  </div>
+
+  <div id="max-600-post" class="col-7 m-0 p-0 h-100 min-900-full">
+    <div class="config">
+      <div class="d-flex mx-auto justify-content-center">
+        <a
+          routerLink="/person/{{ id }}"
+          [ngClass]="{ 'link-activo': !url }"
+          class="mx-3 size-opciones dark link-hover text-decoration-none roboto"
+          >Post</a
+        >
+        <a
+          routerLink="/person/{{ id }}/amigos"
+          routerLinkActive="link-activo"
+          class="mx-3 size-opciones dark link-hover text-decoration-none roboto"
+          >Amigos</a
+        >
+        <a
+          routerLink="/person/{{ id }}/sobre-mi"
+          routerLinkActive="link-activo"
+          class="mx-3 size-opciones dark link-hover text-decoration-none roboto"
+          >sobre mi</a
+        >
+      </div>
+    </div>
+
+    <div class="max-600" *ngIf="!url" style="margin-bottom: 1.25rem">
+      <app-post *ngFor="let post of posts" [post]="post"></app-post>
+      <app-no-post *ngIf="!posts?.length"></app-no-post>
+    </div>
+
+    <div class="max-600" *ngIf="url === 'sobre-mi'">
+      <app-sobre-mi [id]="id"></app-sobre-mi>
+    </div>
+
+    <div class="max-600-post" *ngIf="url === 'amigos'">
+      <app-amigos [id]="id"></app-amigos>
+    </div>
+  </div>
+
+  <div
+    id="divChat"
+    class="col-3 position-fixed m-0 p-0 pt-2 select-off min-900"
+    style="right: 0"
+  >
+    <app-amigos-activos *ngIf="!selectAmigo.displayNone"></app-amigos-activos>
+    <app-amigo-activo-mensajes
+      *ngIf="selectAmigo.displayNone"
+      (myClick)="log($event)"
+    ></app-amigo-activo-mensajes>
+  </div>
+</div>

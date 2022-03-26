@@ -1,0 +1,63 @@
+<div
+  class="p-0 d-block overflow-hidden mx-auto max-600-sectionNotificacion pt-2"
+>
+  <div
+    class="d-flex mx-auto position-relative overflow-visible"
+    style="width: 100%"
+  >
+    <span class="material-icons position-relative select-off size-span">
+      account_circle
+    </span>
+    <p
+      class="
+        ellipsis
+        text-nowrap
+        segoepr
+        dark
+        size-parrafo
+        fw-bold
+        my-auto
+        ms-2
+        h-fit
+      "
+      style="width: 300px !important; overflow-wrap: break-word"
+    >
+      <a
+        routerLink="/person/miguelValero"
+        class="text-decoration-none dark link-hover"
+      >
+        {{ nameUser }}</a
+      >
+    </p>
+    <button
+      *ngIf="!aceptar && !cancelar"
+      (click)="aceptarPeticion()"
+      class="myBtn size-parrafo roboto w-fit mx-0"
+      style="margin-left: 10px !important"
+    >
+      Aceptar
+    </button>
+    <button
+      (click)="cancelarPeticion()"
+      *ngIf="!aceptar && !cancelar"
+      class="myBtn size-parrafo roboto w-fit mx-0"
+      style="margin-left: 10px !important"
+    >
+      Cancelar
+    </button>
+    <p
+      *ngIf="aceptar"
+      class="amigo text-center h-fit px-2 py-1 size-nombres my-auto rounded"
+      style="margin-left: 10px"
+    >
+      Aceptaste la solicitud
+    </p>
+    <p
+      *ngIf="cancelar"
+      class="cancelado text-center h-fit px-2 py-1 size-nombres my-auto rounded"
+      style="margin-left: 10px"
+    >
+      Has cancelado la solicitud
+    </p>
+  </div>
+</div>

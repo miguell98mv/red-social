@@ -1,0 +1,51 @@
+<div
+  class="sombra h-100 rounded-3 scroll pb-3 alturaPantalla max-600-mensajes"
+  style="width: 100%; overflow-x: hidden"
+>
+  <div class="py-3 d-flex menu-content purpura">
+    <span class="material-icons fs-2 h-0 my-auto me-2"> search </span>
+    <form
+      [formGroup]="forms"
+      novalidate
+      spellcheck="false"
+      autocomplete="off"
+      (ngSubmit)="buscarAmigo()"
+    >
+      <input
+        spellcheck="false"
+        formControlName="amigo"
+        #inputBusqueda
+        type="text"
+        class="w-75 border-0 border-bottom my-auto select-on outline-off"
+        placeholder="Buscar amigo"
+        style="border-color: #76289b !important"
+      />
+    </form>
+  </div>
+
+  <blockquote
+    *ngIf="!chatAmigos?.length"
+    class="
+      noMensajes
+      py-3
+      d-flex
+      menu-content
+      claro
+      segoepr
+      size-nombres
+      h-75
+      flex-column
+      align-content-center
+      justify-content-center
+      text-center
+    "
+  >
+    No tienes mensajes
+  </blockquote>
+
+  <app-mensaje-amigo
+    *ngFor="let chatAmigo of chatAmigos"
+    [chatAmigo]="chatAmigo"
+    (mySelectAmigo)="log($event)"
+  ></app-mensaje-amigo>
+</div>

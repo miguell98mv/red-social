@@ -1,0 +1,418 @@
+@font-face {
+  font-family: "roboto";
+  src: url("./assets/font/roboto/Roboto-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url("./assets/font/comfortaa/Comfortaa.ttf");
+}
+
+* {
+  box-sizing: border-box !important;
+}
+
+body {
+  height: fit-content !important;
+}
+
+body::-webkit-scrollbar {
+  background-color: transparent;
+  width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #76289b;
+  border-radius: 4px;
+  width: 5px;
+}
+
+.scroll::-webkit-scrollbar {
+  background-color: transparent;
+  width: 7px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px;
+  width: 7px;
+}
+
+.scroll:hover::-webkit-scrollbar-thumb {
+  background: #3e3e3e;
+  width: 7px;
+}
+
+input::placeholder {
+  font-size: 14px;
+  font-family: "Comfortaa", cursive !important;
+  color: #5e5c5c !important;
+}
+
+input {
+  font-size: 14px !important;
+  font-family: "Comfortaa", cursive !important;
+  color: #3e3e3e !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-button.hover-off .mat-button-focus-overlay {
+  display: none !important;
+}
+
+.mat-button.active-off .mat-ripple.mat-button-ripple {
+  display: none !important;
+}
+
+.select-text {
+  cursor: text;
+  user-select: text !important;
+}
+
+.select-pointer {
+  cursor: pointer !important;
+}
+
+.select-off {
+  user-select: none !important;
+}
+
+.centrar {
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.centrar-fixed-h {
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.centrar-fixed-v {
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sombra {
+  box-shadow: 0px 1px 2px 2px rgba($color: #aaaaaa, $alpha: 0.4);
+}
+
+.sombra-nav {
+  box-shadow: 0px 1px 2px 1px rgba($color: #000000, $alpha: 0.2);
+}
+
+.sombra-menor {
+  box-shadow: 0px 0px 1px 1px rgba($color: #aaaaaa, $alpha: 0.4);
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+.h-fit {
+  height: fit-content !important;
+}
+
+hr {
+  margin: 0 !important;
+  height: 2px !important;
+  border: 0 !important;
+  opacity: 100% !important;
+  background-color: #76289b !important;
+}
+
+.scroll {
+  overflow-x: hidden;
+}
+
+.z-100 {
+  z-index: 100;
+}
+
+.z-200 {
+  z-index: 200;
+}
+
+.z-300 {
+  z-index: 300;
+}
+
+.z-400 {
+  z-index: 400;
+}
+
+.z-500 {
+  z-index: 500;
+}
+
+.size-nombres {
+  font-size: 14px !important;
+}
+
+.size-opciones {
+  font-size: 14px !important;
+}
+
+.size-parrafo {
+  font-size: small !important;
+}
+
+.size-small {
+  font-size: 12px !important;
+}
+
+.size-comentarios {
+  font-size: 14px !important;
+}
+
+.size-mensajes {
+  font-size: 13px !important;
+}
+
+.size-span {
+  font-size: 50px !important;
+}
+
+.white {
+  color: #ffffff;
+}
+
+.dark {
+  color: #3e3e3e;
+}
+
+.gris {
+  color: #5a5151;
+}
+
+.claro {
+  color: #bcb2b2;
+}
+
+.gris-claro {
+  color: #5e5c5c;
+}
+
+.gris-fecha {
+  color: #838383;
+}
+
+.roboto {
+  font-family: "roboto";
+}
+
+.segoepr {
+  font-family: "Comfortaa";
+}
+
+.mat-menu-panel {
+  width: fit-content !important;
+  max-width: none !important;
+  min-width: none !important;
+}
+
+.myBtn {
+  outline: none;
+  border: 1px #76289b solid;
+  color: #ffffff;
+  text-decoration: none;
+  background: #76289b;
+  border-radius: 5px;
+  margin: auto;
+  padding: 5px 10px;
+  width: fit-content;
+  transition: 200ms;
+}
+
+.myBtn-outline {
+  outline: none;
+  border: 1px #76289b solid;
+  color: #76289b;
+  text-decoration: none;
+  background: none;
+  border-radius: 5px;
+  margin: auto;
+  padding: 5px 10px;
+  width: fit-content;
+  transition: 200ms;
+}
+
+.myBtn-outline-white {
+  outline: none;
+  border: 1px #ffffff solid;
+  color: #ffffff;
+  text-decoration: none;
+  background: none;
+  border-radius: 5px;
+  margin: auto;
+  padding: 5px 10px;
+  width: fit-content;
+  transition: 200ms;
+}
+
+.myBtn-perfil {
+  outline: none;
+  border: 1px #ffffff solid;
+  color: #ffffff;
+  text-decoration: none;
+  background: none;
+  border-radius: 5px;
+  margin: auto;
+  padding: 5px 10px;
+  width: fit-content;
+  transition: 200ms;
+}
+
+.myBtn-success {
+  outline: none;
+  color: rgb(61, 187, 55);
+  border: rgb(61, 187, 55) 1px solid;
+  text-decoration: none;
+  background: none;
+  border-radius: 5px;
+  margin: auto;
+  padding: 5px 10px;
+  width: fit-content;
+  transition: 200ms;
+}
+
+.myBtn-success:hover {
+  background-color: rgb(61, 187, 55);
+  color: #ffff;
+}
+
+.amigo {
+  color: rgb(61, 187, 55);
+  border: 1px solid rgb(61, 187, 55);
+}
+
+.cancelado {
+  color: rgb(228, 0, 0);
+  border: 1px solid rgb(228, 0, 0);
+}
+
+.r-btn {
+  border: none !important;
+  background: none !important;
+  display: flex !important;
+  justify-content: center;
+}
+
+.span-icon {
+  color: #76289b !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  margin: auto !important;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+}
+
+.purpura {
+  color: #76289b;
+}
+
+.bg-purpura {
+  background-color: #76289b;
+}
+
+.bg-resp {
+  background-color: #c6e3ff;
+}
+
+.outline-off {
+  outline: none;
+}
+
+.link-hover:hover * {
+  color: #76289b !important;
+}
+
+.link-hover:hover {
+  color: #76289b !important;
+}
+
+.new::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background: rgb(233, 15, 15);
+}
+
+.activo {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  top: 40%;
+  margin: auto;
+  border-radius: 500px;
+  background-color: rgb(0, 212, 89);
+  box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 2px 0px inset;
+}
+
+.link-activo {
+  border-bottom: 2px #76289b solid;
+}
+
+@media screen and (max-width: 600px) {
+  body::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0px;
+  }
+
+  .scroll::-webkit-scrollbar {
+    background-color: transparent;
+    width: 0;
+  }
+
+  .size-nombres {
+    font-size: 13px !important;
+  }
+
+  .size-opciones {
+    font-size: 13px !important;
+  }
+
+  .size-parrafo {
+    font-size: 11px !important;
+  }
+
+  .size-small {
+    font-size: 12px !important;
+  }
+
+  .size-comentarios {
+    font-size: 12px !important;
+  }
+
+  .size-mensajes {
+    font-size: 15px !important;
+  }
+
+  .size-span {
+    font-size: 40px !important;
+  }
+}

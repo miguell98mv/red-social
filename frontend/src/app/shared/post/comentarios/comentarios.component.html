@@ -1,0 +1,77 @@
+<div
+  class="d-flex position-relative h-fit pt-3 mx-auto max-600-comentarios"
+  style="width: 92%"
+>
+  <p
+    (click)="activeComentario = !activeComentario"
+    id="comentario"
+    class="
+      select-pointer
+      size-opciones
+      d-flex
+      h-fit
+      my-auto
+      w-fit
+      roboto
+      gris-claro
+      m-0
+      p-0
+    "
+  >
+    Comentarios
+    <span class="material-icons">{{
+      activeComentario ? "expand_less" : "expand_more"
+    }}</span>
+  </p>
+  <small
+    class="segoepr size-nombres"
+    style="position: absolute; right: 50px; top: 16px"
+    >{{ numberLike }}</small
+  >
+  <span
+    (click)="addLike()"
+    class="material-icons centrar-fixed-v select-pointer"
+    style="position: absolute; right: 10px; font-size: 35px; top: 25px"
+    >{{ myLike ? "favorite" : "favorite_border" }}
+  </span>
+</div>
+
+<div
+  class="d-b position-relative mt-4 h-fit mx-auto max-600-comentarios"
+  style="width: 90%"
+  [ngClass]="{ 'd-none': activeComentario }"
+>
+  <div class="d-block position-relative">
+    <input
+      #input
+      [formControl]="comentario"
+      spellcheck="false"
+      autocomplete="off"
+      type="text"
+      class="py-2 h-50 border-0 border-bottom my-auto select-on outline-off"
+      placeholder="Comentar"
+      style="
+        width: 100%;
+        border-color: #3e3e3e !important;
+        outline: none;
+        padding-right: 40px !important;
+      "
+      (keyup.enter)="addComentario(input)"
+    />
+    <span
+      class="material-icons"
+      style="position: absolute; bottom: 10px; margin-left: -30px"
+      (click)="addComentario(input)"
+    >
+      send
+    </span>
+  </div>
+  <div
+    class="d-block ellipsis my-3 position-relative overflow-visible"
+    style="width: 92%"
+  >
+    <div *ngFor="let comentario of getComentarios">
+      <app-un-comentario [comentario]="comentario"></app-un-comentario>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.max-600-AmigosEncontrados {
+  width: 90% !important;
+}
+
+@media screen and (max-width: 600px) {
+  .max-600-AmigosEncontrados {
+    width: 100% !important;
+  }
+}

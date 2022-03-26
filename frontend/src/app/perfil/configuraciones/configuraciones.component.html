@@ -1,0 +1,391 @@
+<div
+  #appPost
+  class="
+    position-relative
+    configuracion
+    select-off
+    my-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Nombre de usuario
+  </h6>
+  <input
+    #nombre
+    type="text"
+    disabled
+    class="outline-off border-0 d-flex mx-auto"
+    style="width: 90%"
+    placeholder="{{ usuario?.datos?.nameUser }}"
+  />
+  <button
+    #cambiarNombre
+    (click)="
+      showEdit(nombre, cambiarNombre, cancelarNombre, guardarNombre, 'nombre')
+    "
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Cambiar
+  </button>
+  <button
+    (click)="
+      cancelar(nombre, cambiarNombre, cancelarNombre, guardarNombre, 'nombre')
+    "
+    #cancelarNombre
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 90px"
+  >
+    Cancelar
+  </button>
+  <button
+    (click)="
+      guardar(nombre, cambiarNombre, cancelarNombre, guardarNombre, 'nombre')
+    "
+    #guardarNombre
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Guardar
+  </button>
+</div>
+
+<div
+  #appPost
+  class="
+    position-relative
+    configuracion
+    select-off
+    my-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Contraseña
+  </h6>
+  <p
+    #error
+    class="p-0 m-0 mx-auto dark segoepr size-opciones text-danger my-3 d-none"
+    style="width: 90%"
+  >
+    Contraseña incorrecta
+  </p>
+  <p
+    #succes
+    class="p-0 m-0 mx-auto dark segoepr my-3 size-opciones text-success d-none"
+    style="width: 90%"
+  >
+    Se cambio la contraseña
+  </p>
+  <input
+    #contrasenaOriginal
+    type="password"
+    class="outline-off border-0 d-flex mx-auto my-2"
+    style="width: 90%"
+    placeholder="Escriba su contraseña original"
+  />
+  <input
+    #contrasena
+    type="text"
+    disabled
+    class="outline-off border-0 d-flex mx-auto my-2"
+    style="width: 90%"
+    placeholder="Escriba nueva contraseña"
+  />
+  <button
+    #cambiarContrasena
+    (click)="
+      showEdit(
+        contrasena,
+        cambiarContrasena,
+        cancelarContrasena,
+        guardarContrasena,
+        'contrasena'
+      )
+    "
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px; top: 70%"
+  >
+    Cambiar
+  </button>
+  <button
+    (click)="
+      cancelar(
+        contrasena,
+        cambiarContrasena,
+        cancelarContrasena,
+        guardarContrasena,
+        'contrasena'
+      )
+    "
+    #cancelarContrasena
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 90px; top: 70%"
+  >
+    Cancelar
+  </button>
+  <button
+    (click)="
+      guardar(
+        contrasena,
+        cambiarContrasena,
+        cancelarContrasena,
+        guardarContrasena,
+        'password',
+        contrasenaOriginal,
+        error,
+        succes
+      )
+    "
+    #guardarContrasena
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px; top: 70%"
+  >
+    Guardar
+  </button>
+</div>
+
+<div
+  #appPost
+  class="
+    position-relative
+    configuracion
+    select-off
+    my-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Estado de chat
+  </h6>
+  <input
+    #estado
+    type="text"
+    disabled
+    class="outline-off border-0 d-flex mx-auto"
+    style="width: 90%"
+    placeholder="Activado"
+  />
+  <button
+    #cambiarEstado
+    (click)="
+      showEdit(estado, cambiarEstado, cancelarEstado, guardarEstado, 'estado')
+    "
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Cambiar
+  </button>
+  <button
+    (click)="
+      cancelar(estado, cambiarEstado, cancelarEstado, guardarEstado, 'estado')
+    "
+    #cancelarEstado
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 90px"
+  >
+    Cancelar
+  </button>
+  <button
+    (click)="guardar(estado, cambiarEstado, cancelarEstado, guardarEstado)"
+    #guardarEstado
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Guardar
+  </button>
+</div>
+
+<div
+  #appPost
+  class="
+    position-relative
+    configuracion
+    select-off
+    my-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Notificaciones
+  </h6>
+  <input
+    #notificaciones
+    type="text"
+    disabled
+    class="outline-off border-0 d-flex mx-auto"
+    style="width: 90%"
+    placeholder="Activado"
+  />
+  <button
+    #cambiarNotificaciones
+    (click)="
+      showEdit(
+        notificaciones,
+        cambiarNotificaciones,
+        cancelarNotificaciones,
+        guardarNotificaciones,
+        'notificaciones'
+      )
+    "
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Cambiar
+  </button>
+  <button
+    (click)="
+      cancelar(
+        notificaciones,
+        cambiarNotificaciones,
+        cancelarNotificaciones,
+        guardarNotificaciones,
+        'notificaciones'
+      )
+    "
+    #cancelarNotificaciones
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 90px"
+  >
+    Cancelar
+  </button>
+  <button
+    (click)="
+      guardar(
+        notificaciones,
+        cambiarNotificaciones,
+        cancelarNotificaciones,
+        guardarNotificaciones
+      )
+    "
+    #guardarNotificaciones
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Guardar
+  </button>
+</div>
+
+<div
+  #appPost
+  class="
+    position-relative
+    configuracion
+    select-off
+    my-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Privacidad
+  </h6>
+  <input
+    #privacidad
+    type="text"
+    disabled
+    class="outline-off border-0 d-flex mx-auto"
+    style="width: 90%"
+    placeholder="Mostrar contenido"
+  />
+  <button
+    #cambiarPrivacidad
+    (click)="
+      showEdit(
+        privacidad,
+        cambiarPrivacidad,
+        cancelarPrivacidad,
+        guardarPrivacidad,
+        'privacidad'
+      )
+    "
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Cambiar
+  </button>
+  <button
+    (click)="
+      cancelar(
+        privacidad,
+        cambiarPrivacidad,
+        cancelarPrivacidad,
+        guardarPrivacidad,
+        'privacidad'
+      )
+    "
+    #cancelarPrivacidad
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 90px"
+  >
+    Cancelar
+  </button>
+  <button
+    (click)="
+      guardar(
+        privacidad,
+        cambiarPrivacidad,
+        cancelarPrivacidad,
+        guardarPrivacidad
+      )
+    "
+    #guardarPrivacidad
+    class="d-none myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Guardar
+  </button>
+</div>
+
+<div
+  #appPost
+  class="
+    ultima-config
+    position-relative
+    configuracion
+    select-off
+    my-4
+    mx-auto
+    d-block
+    sombra
+    rounded-3
+    max-600-post
+  "
+  style="width: 100%"
+>
+  <h6 class="p-0 py-3 m-0 mx-auto dark roboto size-opciones" style="width: 90%">
+    Instalar aplicacion
+  </h6>
+  <button
+    id="instalar"
+    class="myBtn position-absolute centrar-fixed-v roboto size-parrafo"
+    style="right: 10px"
+  >
+    Instalar
+  </button>
+</div>

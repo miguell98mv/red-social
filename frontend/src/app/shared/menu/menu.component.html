@@ -1,0 +1,784 @@
+<div class="menu position-fixed z-500" style="top: 0px"></div>
+<div
+  class="mx-auto select-off position-fixed z-500 centrar-fixed-h min-600"
+  style="width: 100%"
+>
+  <div class="row">
+    <div class="col-4 d-flex align-items-center menu-content position-relative">
+      <div class="m-0 ms-4 p-0">
+        <button class="hover-off active-off w-100 r-btn">
+          <a
+            routerLink="/home"
+            class="text-decoration-none"
+            routerLinkActive=""
+            #home="routerLinkActive"
+          >
+            <span
+              [ngClass]="{
+                'material-icons-outlined': !home.isActive,
+                'material-icons': home.isActive
+              }"
+              class="fs-2 span-icon"
+            >
+              home
+            </span>
+          </a>
+        </button>
+      </div>
+      <div #botonMensajes class="m-0 p-0">
+        <button
+          class="hover-off active-off w-100 r-btn position-relative"
+          [ngClass]="{ new: newMensaje?.mensaje }"
+          (click)="notNewMensaje()"
+        >
+          <span
+            [ngClass]="{
+              'material-icons-outlined': !mensajes.isActive,
+              'material-icons': mensajes.isActive
+            }"
+            class="fs-2 span-icon"
+          >
+            mail
+          </span>
+        </button>
+      </div>
+      <section
+        #divMensajes
+        [ngStyle]="{
+          top: '49px',
+          background: 'white'
+        }"
+        class="divMenu position-absolute rounded-3 sombra-nav py-4 px-0 d-none"
+      >
+        <app-menu-mensaje-amigo
+          *ngFor="let chatAmigo of chatAmigos"
+          [chatAmigo]="chatAmigo"
+          (click)="mensajesAmigo()"
+        ></app-menu-mensaje-amigo>
+        <div
+          *ngIf="!numMensaje"
+          class="max-600-post h-100 py-3 mb-3 mx-auto d-block rounded-3 scroll"
+          style="width: 100%; overflow-x: hidden !important"
+        >
+          <p
+            style="display: flex; margin: auto 20px"
+            class="segoepr size-opciones gris-claro"
+          >
+            No tienes mensajes
+          </p>
+        </div>
+        <p
+          class="roboto gris size-parrafo h-fit text-center"
+          style="margin-bottom: -10px; margin-top: 15px"
+        >
+          <a
+            class="text-decoration-none dark select-pointer link-hover"
+            (click)="divNone(divMensajes)"
+            routerLink="/mensajes"
+            routerLinkActive=""
+            #mensajes="routerLinkActive"
+          >
+            Ir a mensajes</a
+          >
+        </p>
+      </section>
+      <div #botonSolicitudes class="m-0 p-0">
+        <button
+          class="hover-off active-off w-100 r-btn position-relative"
+          (click)="noNewSolicitud()"
+          [ngClass]="{ new: newSolicitud?.solicitud }"
+        >
+          <span
+            [ngClass]="{
+              'material-icons-outlined': !solicitudes.isActive,
+              'material-icons': solicitudes.isActive
+            }"
+            class="fs-2 span-icon"
+          >
+            person
+          </span>
+        </button>
+      </div>
+      <section
+        #divSolicitudes
+        [ngStyle]="{
+          top: '49px',
+          background: 'white'
+        }"
+        class="divMenu position-absolute rounded-3 sombra-nav py-4 d-none"
+      >
+        <app-solicitudes
+          *ngFor="let solicitud of mySolicitudes"
+          [solicitud]="solicitud"
+        ></app-solicitudes>
+        <div
+          *ngIf="!numSolicitudes"
+          class="max-600-post h-100 py-3 mb-3 mx-auto d-block rounded-3 scroll"
+          style="width: 100%; overflow-x: hidden !important"
+        >
+          <p
+            style="display: flex; margin: auto 20px"
+            class="segoepr size-opciones gris-claro"
+          >
+            No tienes solicitudes
+          </p>
+        </div>
+        <p
+          class="roboto gris size-parrafo h-fit text-center"
+          style="margin-bottom: -10px; margin-top: 15px"
+        >
+          <a
+            class="text-decoration-none dark select-pointer link-hover"
+            (click)="divNone(divSolicitudes)"
+            routerLink="/solicitudes"
+            routerLinkActive=""
+            #solicitudes="routerLinkActive"
+          >
+            Ir a solicitudes</a
+          >
+        </p>
+      </section>
+      <div #botonNotificaciones class="m-0 p-0">
+        <button
+          (click)="noNewNotificacion()"
+          [ngClass]="{
+            new: newNotificaciones?.likes || newNotificaciones?.comentario
+          }"
+          class="hover-off active-off w-100 r-btn position-relative new"
+        >
+          <span
+            [ngClass]="{
+              'material-icons-outlined': !notificacion.isActive,
+              'material-icons': notificacion.isActive
+            }"
+            class="fs-2 span-icon"
+          >
+            notifications
+          </span>
+        </button>
+      </div>
+      <section
+        #divNotificaciones
+        [ngStyle]="{
+          top: '49px',
+          background: 'white'
+        }"
+        class="divMenu position-absolute rounded-3 sombra-nav py-4 d-none"
+      >
+        <app-notificacion
+          *ngFor="let notificacion of myNotificaciones"
+          [notificacion]="notificacion"
+        ></app-notificacion>
+        <div
+          *ngIf="!myNotificaciones?.length"
+          class="max-600-post h-100 py-3 mb-3 mx-auto d-block rounded-3 scroll"
+          style="width: 100%; overflow-x: hidden !important"
+        >
+          <p
+            style="display: flex; margin: auto 20px"
+            class="segoepr size-opciones gris-claro"
+          >
+            No tienes notificaciones
+          </p>
+        </div>
+        <p
+          class="roboto gris size-parrafo h-fit text-center"
+          style="margin-bottom: -10px; margin-top: 15px"
+        >
+          <a
+            class="text-decoration-none dark select-pointer link-hover"
+            (click)="divNone(divNotificaciones)"
+            routerLink="/notificaciones"
+            routerLinkActive=""
+            #notificacion="routerLinkActive"
+          >
+            Ir a notificaciones</a
+          >
+        </p>
+      </section>
+    </div>
+    <div
+      class="
+        col-4
+        d-flex
+        justify-content-center
+        align-content-center
+        menu-content
+      "
+    >
+      <blockquote
+        #botonPefil
+        class="d-flex material-icons fs-1 h-0 my-auto mx-1 select-pointer"
+      >
+        <span
+          *ngIf="!imagen"
+          class="material-icons position-relative"
+          style="font-size: 37px"
+        >
+          account_circle
+        </span>
+        <img
+          class="d-none rounded-circle mt-1"
+          style="width: 50px !important; height: 30px !important"
+          #spanImagen
+        />
+        <p
+          class="
+            h-0
+            my-auto
+            segoepr
+            size-parrafo
+            dark
+            fw-bold
+            ellipsis
+            w-100
+            text-nowrap
+            overflow-hidden
+            ms-2
+          "
+        >
+          {{ usuario.datos?.nameUser }}
+        </p>
+      </blockquote>
+
+      <section
+        #divPerfil
+        class="
+          divMenu
+          w-fit
+          h-fit
+          position-absolute
+          rounded-3
+          sombra-nav
+          py-4
+          d-none
+        "
+        style="top: '-10px'; background: 'white'"
+      >
+        <a
+          class="
+            text-decoration-none
+            select-pointer
+            link-hover
+            m-0
+            d-flex
+            roboto
+            gris
+            size-parrafo
+            h-fit
+            text-center
+            px-3
+            py-1
+          "
+          routerLink="/perfil"
+          routerLinkActive=""
+          #notificacion="routerLinkActive"
+        >
+          <span class="material-icons-outlined pe-2" style="font-size: 30px">
+            account_circle
+          </span>
+          <p class="my-auto">Perfil</p>
+        </a>
+        <a
+          class="
+            text-decoration-none
+            select-pointer
+            link-hover
+            m-0
+            d-flex
+            roboto
+            gris
+            size-parrafo
+            h-fit
+            text-center
+            px-3
+            py-1
+          "
+          routerLink="/perfil/amigos"
+          routerLinkActive=""
+          #notificacion="routerLinkActive"
+        >
+          <span class="material-icons-outlined pe-2" style="font-size: 30px">
+            group
+          </span>
+          <p class="my-auto">Amigos</p>
+        </a>
+        <a
+          class="
+            text-decoration-none
+            select-pointer
+            link-hover
+            m-0
+            d-flex
+            roboto
+            gris
+            size-parrafo
+            h-fit
+            text-center
+            px-3
+            py-1
+          "
+          routerLink="/perfil/configuracion"
+          routerLinkActive=""
+          #notificacion="routerLinkActive"
+        >
+          <span class="material-icons-outlined pe-2" style="font-size: 30px">
+            settings
+          </span>
+          <p class="my-auto">Configuracion</p>
+        </a>
+        <a
+          class="
+            text-decoration-none
+            select-pointer
+            link-hover
+            m-0
+            d-flex
+            roboto
+            gris
+            size-parrafo
+            h-fit
+            text-center
+            px-3
+            py-1
+          "
+          routerLink="/perfil/sobre-mi"
+          routerLinkActive=""
+          #notificacion="routerLinkActive"
+        >
+          <span class="material-icons-outlined pe-2" style="font-size: 30px">
+            library_books
+          </span>
+          <p class="my-auto">Sobre mi</p>
+        </a>
+        <a
+          (click)="cerrarSession()"
+          class="
+            text-decoration-none
+            select-pointer
+            link-hover
+            m-0
+            d-flex
+            roboto
+            gris
+            size-parrafo
+            h-fit
+            text-center
+            px-3
+          "
+        >
+          <span class="material-icons-outlined pe-2" style="font-size: 30px">
+            logout
+          </span>
+          <p class="my-auto">Salir</p>
+        </a>
+      </section>
+    </div>
+    <div
+      class="
+        pe-5
+        col-4
+        d-flex
+        justify-content-end
+        align-content-end
+        menu-content
+        purpura
+      "
+    >
+      <span class="material-icons fs-2 h-0 my-auto mx-2" style="color: #76289b">
+        search
+      </span>
+      <!-- <input
+        spellcheck="false"
+        #inputBusqueda
+        [formControl]="busqueda"
+        type="text"
+        class="h-50 w-75 border-0 border-bottom my-auto select-on outline-off"
+        placeholder="Buscar amigo"
+        style="border-color: #76289b !important"
+      /> -->
+      <input
+        #input1
+        spellcheck="false"
+        #inputBusqueda
+        [formControl]="busqueda"
+        type="text"
+        class="h-50 border-0 my-auto select-on outline-off input-buscar"
+        style="width: 120px !important"
+        placeholder="Buscar amigo"
+        (keyup.enter)="buscarAmigo(input1)"
+      />
+    </div>
+  </div>
+</div>
+
+<div
+  class="mx-auto select-off position-fixed z-500 centrar-fixed-h max-600"
+  style="width: 100%"
+>
+  <div class="row">
+    <div
+      class="
+        ps-4
+        col-4
+        d-flex
+        justify-content-center
+        align-content-center
+        menu-content
+        purpura
+      "
+    >
+      <span class="material-icons fs-2 h-0 my-auto" style="color: #76289b">
+        search
+      </span>
+      <!-- <input
+        spellcheck="false"
+        #inputBusqueda
+        [formControl]="busqueda"
+        type="text"
+        class="h-50 w-75 border-0 border-bottom my-auto select-on outline-off"
+        placeholder="Buscar"
+        style="border-color: #76289b !important"
+      /> -->
+      <input
+        spellcheck="false"
+        #input2
+        [formControl]="busqueda"
+        type="text"
+        class="
+          mx-1
+          h-50
+          w-100
+          border-0
+          my-auto
+          select-on
+          outline-off
+          input-buscar
+          ellipsis
+        "
+        placeholder="Buscar"
+        (keyup.enter)="buscarAmigo(input2)"
+      />
+    </div>
+
+    <div
+      class="
+        col-4
+        d-flex
+        justify-content-center
+        align-content-center
+        menu-content
+      "
+    >
+      <blockquote
+        #botonPefil
+        class="d-flex material-icons fs-1 h-0 my-auto mx-1 select-pointer"
+      >
+        <span
+          *ngIf="!imagen"
+          class="material-icons position-relative"
+          style="font-size: 37px"
+        >
+          account_circle
+        </span>
+        <img
+          class="d-none rounded-circle mt-1"
+          style="width: 50px !important; height: 30px !important"
+          #spanImagen
+        />
+        <p
+          class="
+            h-0
+            my-auto
+            segoepr
+            size-parrafo
+            dark
+            fw-bold
+            ellipsis
+            w-100
+            text-nowrap
+            overflow-hidden
+            ms-2
+          "
+        >
+          {{ usuario.datos?.nameUser }}
+        </p>
+      </blockquote>
+      <section
+        #divPerfil
+        class="
+          divMenu
+          w-fit
+          h-fit
+          position-absolute
+          rounded-3
+          sombra-nav
+          py-4
+          d-none
+        "
+        style="top: '-10px'; background: 'white'"
+      >
+        <p
+          class="
+            select-pointer
+            link-hover
+            m-0
+            d-flex
+            roboto
+            gris
+            size-parrafo
+            h-fit
+            text-center
+            px-3
+          "
+        >
+          <span class="material-icons-outlined" style="font-size: 30px">
+            account_circle
+          </span>
+          <a
+            class="ps-2 my-auto text-decoration-none dark link-hover"
+            routerLink="/perfil"
+            routerLinkActive=""
+            #notificacion="routerLinkActive"
+          >
+            Perfil</a
+          >
+        </p>
+        <p
+          class="
+            select-pointer
+            link-hover
+            m-0
+            mt-2
+            d-flex
+            roboto
+            gris
+            size-parrafo
+            h-fit
+            text-center
+            px-3
+          "
+        >
+          <span class="material-icons-outlined" style="font-size: 30px">
+            group
+          </span>
+          <a
+            class="ps-2 my-auto text-decoration-none dark"
+            routerLink="/perfil/amigos"
+            routerLinkActive=""
+            #notificacion="routerLinkActive"
+          >
+            Amigos</a
+          >
+        </p>
+        <p
+          class="
+            select-pointer
+            link-hover
+            m-0
+            mt-2
+            d-flex
+            roboto
+            gris
+            size-parrafo
+            h-fit
+            text-center
+            px-3
+          "
+        >
+          <span class="material-icons-outlined" style="font-size: 30px">
+            library_books
+          </span>
+          <a
+            class="ps-2 my-auto text-decoration-none dark"
+            routerLink="/perfil/sobre-mi"
+            routerLinkActive=""
+            #notificacion="routerLinkActive"
+          >
+            Sobre mi</a
+          >
+        </p>
+        <p
+          class="
+            select-pointer
+            link-hover
+            m-0
+            mt-2
+            d-flex
+            roboto
+            gris
+            size-parrafo
+            h-fit
+            text-center
+            px-3
+          "
+        >
+          <span class="material-icons-outlined" style="font-size: 30px">
+            settings
+          </span>
+          <a
+            class="ps-2 my-auto text-decoration-none dark"
+            routerLink="/perfil/configuracion"
+            routerLinkActive=""
+            #notificacion="routerLinkActive"
+          >
+            Configuracion</a
+          >
+        </p>
+        <p
+          (click)="cerrarSession()"
+          class="
+            select-pointer
+            link-hover
+            m-0
+            mt-2
+            d-flex
+            roboto
+            gris
+            size-parrafo
+            h-fit
+            text-center
+            px-3
+          "
+        >
+          <span class="material-icons-outlined" style="font-size: 30px">
+            logout
+          </span>
+          <a class="ps-2 my-auto text-decoration-none dark"> Salir</a>
+        </p>
+      </section>
+    </div>
+    <div class="col-4 d-flex align-items-center menu-content position-relative">
+      <div #botonNotificaciones class="w-100 m-0 p-0">
+        <button
+          (click)="noNewNotificacion(true)"
+          [ngClass]="{
+            new: newNotificaciones?.likes || newNotificaciones?.comentario
+          }"
+          class="hover-off active-off r-btn position-relative mx-auto"
+        >
+          <a class="text-decoration-none dark select-pointer link-hover"
+            ><span
+              [ngClass]="{
+                'material-icons-outlined': !notificacion.isActive,
+                'material-icons': notificacion.isActive
+              }"
+              class="fs-1 span-icon"
+            >
+              notifications
+            </span></a
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="z-500 menu-movil bg-white"
+  style="
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+  "
+>
+  <button class="h-fit mx-3 w-fit hover-off select-off active-off r-btn">
+    <a routerLink="/home" class="text-decoration-none select-pointer">
+      <span
+        [ngClass]="{
+          'material-icons-outlined': !home.isActive,
+          'material-icons': home.isActive
+        }"
+        class="fs-1 span-icon"
+      >
+        home
+      </span>
+    </a>
+  </button>
+
+  <button
+    class="
+      h-fit
+      mx-3
+      w-fit
+      hover-off
+      select-off
+      active-off
+      r-btn
+      position-relative
+    "
+  >
+    <a
+      [ngClass]="{ new: newMensaje?.mensaje }"
+      (click)="notNewMensaje(true)"
+      class="text-decoration-none select-pointer"
+    >
+      <span
+        [ngClass]="{
+          'material-icons-outlined': url !== 'mensajes',
+          'material-icons': url === 'mensajes'
+        }"
+        class="fs-1 span-icon"
+      >
+        email
+      </span>
+    </a>
+  </button>
+
+  <button
+    class="
+      h-fit
+      mx-3
+      w-fit
+      hover-off
+      select-off
+      active-off
+      r-btn
+      position-relative
+    "
+  >
+    <a
+      [ngClass]="{ new: newSolicitud?.solicitud }"
+      (click)="noNewSolicitud(true)"
+      class="text-decoration-none select-pointer"
+    >
+      <span
+        [ngClass]="{
+          'material-icons-outlined': url !== 'solicitudes',
+          'material-icons': url === 'solicitudes'
+        }"
+        class="fs-1 span-icon"
+      >
+        person
+      </span>
+    </a>
+  </button>
+
+  <button
+    class="
+      h-fit
+      mx-3
+      w-fit
+      hover-off
+      select-off
+      active-off
+      r-btn
+      position-relative
+    "
+  >
+    <a (click)="chatResponsive()" class="text-decoration-none select-pointer">
+      <span
+        [ngClass]="{
+          'material-icons-outlined': url !== 'amigos-activos',
+          'material-icons': url === 'amigos-activos'
+        }"
+        class="fs-1 span-icon"
+      >
+        chat
+      </span>
+    </a>
+  </button>
+</div>

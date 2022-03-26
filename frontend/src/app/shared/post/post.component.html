@@ -1,0 +1,37 @@
+<div
+  #appPost
+  class="select-off mb-4 mx-auto d-block sombra rounded-3 max-600-post"
+  style="width: 100%"
+>
+  <div
+    class="d-flex flex-fill ellipsis mx-auto position-relative overflow-visible"
+    style="width: 92%"
+  >
+    <span
+      *ngIf="!imagen"
+      class="material-icons position-relative"
+      style="font-size: 50px"
+    >
+      account_circle
+    </span>
+    <img class="d-none mt-1 rounded-circle imagenPost" #spanImagen />
+    <p class="segoepr w-50 dark size-opciones fw-bold my-auto ms-3 h-fit">
+      <a class="text-decoration-none dark link-hover" routerLink="{{ url }}">
+        {{ nameUser }}</a
+      >
+    </p>
+  </div>
+  <p
+    class="mt-2 segoepr size-opciones gris-claro mx-auto select-text"
+    style="width: 92%"
+  >
+    {{ post.texto }}
+  </p>
+  <img
+    [src]="imagenPost"
+    alt=""
+    class="d-flex mx-auto imagen"
+    style="width: 92%"
+  />
+  <app-comentarios [post]="post"></app-comentarios>
+</div>

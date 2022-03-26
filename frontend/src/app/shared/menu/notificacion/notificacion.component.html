@@ -1,0 +1,41 @@
+<div class="p-0 mx-auto d-block py-1" style="width: 90%">
+  <div class="d-flex mx-auto position-relative" style="width: 100%s">
+    <span
+      *ngIf="!imagen"
+      class="material-icons position-relative"
+      style="font-size: 40px"
+    >
+      account_circle
+    </span>
+    <img
+      class="mx-auto mt-1 ms-1 me-1 d-none rounded-circle"
+      style="width: 38px; height: 33px"
+      #spanImagen
+    />
+    <p
+      class="
+        text-nowrap
+        ellipsis
+        segoepr
+        dark
+        size-small
+        fw-bold
+        my-auto
+        ms-2
+        h-fit
+      "
+      style="width: 170px; overflow: hidden"
+    >
+      <a
+        routerLink="/person/miguelValero"
+        class="text-decoration-none dark link-hover"
+      >
+        {{ nameUser }}</a
+      >
+      <small class="d-block ellipsis gris-claro">
+        {{ notificacion.likes === 1 ? "Le gusto tu post" : "" }}
+        {{ notificacion.comentarios === 1 ? "Comento tu foto" : "" }}
+      </small>
+    </p>
+  </div>
+</div>

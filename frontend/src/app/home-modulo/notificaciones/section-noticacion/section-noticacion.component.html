@@ -1,0 +1,45 @@
+<div
+  class="p-0 d-block overflow-hidden mx-auto max-600-sectionNotificacion pt-2"
+>
+  <div
+    class="d-flex mx-auto position-relative overflow-hidden"
+    style="width: 100%"
+  >
+    <span
+      *ngIf="!imagen"
+      class="material-icons position-relative"
+      style="font-size: 50px"
+    >
+      account_circle
+    </span>
+    <img
+      class="d-none rounded-circle mt-1 me-1"
+      style="width: 42px !important; height: 42px !important"
+      #spanImagen
+    />
+    <p
+      class="
+        text-nowrap
+        w-50
+        ellipsis
+        segoepr
+        dark
+        size-parrafo
+        fw-bold
+        select-text
+        my-auto
+        ms-3
+        h-fit
+      "
+      style="overflow-wrap: break-word"
+    >
+      <a routerLink="{{ url }}" class="text-decoration-none dark link-hover">
+        {{ nameUser }}</a
+      >
+      <small class="d-block gris-claro ellipsis">
+        {{ notificacion.likes === 1 ? "Le gusto tu post" : "" }}
+        {{ notificacion.comentarios === 1 ? "Comento tu foto" : "" }}
+      </small>
+    </p>
+  </div>
+</div>

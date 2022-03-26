@@ -1,0 +1,27 @@
+<div
+  class="sombra mt-3 rounded-3 scroll pb-3"
+  style="width: 90%; height: 100%; overflow-x: hidden"
+>
+  <h6 class="pt-3 text-center segoepr dark size-nombres fw-bold select-text">
+    Personas activas
+  </h6>
+  <section *ngFor="let amigoActivo of usuario.amigosActivos">
+    <app-amigo-activo
+      (myClick)="log($event)"
+      [amigoActivo]="amigoActivo"
+    ></app-amigo-activo>
+  </section>
+  <section *ngIf="!usuario.numAmigosActivos">
+    <p
+      class="d-block mx-auto segoepr gris-claro size-nombres mt-3 text-center"
+      style="width: 80%"
+    >
+      No hay amigos activos
+    </p>
+    <img
+      src="../../../assets/imagenes/chat.svg"
+      width="80%"
+      class="mt-5 mx-auto d-block"
+    />
+  </section>
+</div>

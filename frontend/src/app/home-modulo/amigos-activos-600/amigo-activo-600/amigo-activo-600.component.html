@@ -1,0 +1,43 @@
+<div
+  (click)="eventClick()"
+  class="
+    h-100
+    d-flex
+    pt-2
+    position-relative
+    overflow-visible
+    select-pointer
+    max-600-mensajesAmigo
+  "
+>
+  <span
+    *ngIf="!imagen"
+    class="material-icons position-relative"
+    style="font-size: 40px"
+  >
+    account_circle
+  </span>
+  <img
+    class="d-none rounded-circle mt-1"
+    style="width: 35px !important; height: 35px !important"
+    #spanImagen
+  />
+  <p
+    class="
+      text-nowrap
+      ellipsis
+      segoepr
+      w-50
+      dark
+      size-parrafo
+      fw-bold
+      my-auto
+      ms-2
+      h-fit
+    "
+    style="overflow-wrap: break-word"
+  >
+    {{ amigoActivo?.nameUser }}
+  </p>
+  <div class="activo"></div>
+</div>

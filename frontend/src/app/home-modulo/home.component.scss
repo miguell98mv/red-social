@@ -1,0 +1,60 @@
+#max-600-post {
+  padding-left: 1.7rem !important;
+  padding-right: 1.7rem !important;
+}
+
+.min-600-divAllMensajes {
+  padding-right: 1.7rem !important;
+  display: block !important;
+}
+
+.min-600-divMensajes {
+  display: none !important;
+}
+
+@media screen and (max-width: 900px) {
+  .min-900 {
+    display: none !important;
+  }
+
+  .min-900-full {
+    width: 100%;
+  }
+
+  .min-900-divMensajes {
+    padding-left: 2.5rem !important;
+    width: 40% !important;
+  }
+
+  .min-900-divAllMensajes {
+    width: 60% !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  #max-600-post {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 48px !important;
+  }
+
+  .min-900-divMensajes {
+    display: none !important;
+  }
+
+  .min-900-divAllMensajes {
+    display: none !important;
+  }
+
+  .min-600-divMensajes {
+    box-shadow: none !important;
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .min-600-divAllMensajes {
+    padding: 0 !important;
+    box-shadow: none !important;
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,30 @@
+<div
+  #appNotificaciones
+  class="max-600-post h-100 py-3 mb-3 mx-auto d-block sombra rounded-3 scroll"
+  style="width: 100%; overflow-x: hidden !important"
+>
+  <h5 class="size-opciones mb-2 gris roboto mx-auto">Notificaciones</h5>
+  <app-section-noticacion
+    *ngFor="let notificacion of notificaciones"
+    [notificacion]="notificacion"
+  ></app-section-noticacion>
+  <section
+    *ngIf="!numNotificaciones"
+    style="width: 100%"
+    style="margin-top: 60px"
+  >
+    <p class="text-center pt-2 segoepr gris-claro size-nombres">
+      No hay notificaciones
+    </p>
+    <img
+      src="../../../assets//imagenes/notificacion.svg"
+      style="
+        width: 300px;
+        margin: auto;
+        display: flex;
+        margin-top: 30px;
+        margin-bottom: 70px;
+      "
+    />
+  </section>
+</div>

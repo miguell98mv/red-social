@@ -1,0 +1,23 @@
+.inactivoComentario {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .max-600-comentarios input,
+  .max-600-comentarios div {
+    width: 100% !important;
+  }
+
+  .max-600-comentarios div span {
+    margin-bottom: -6px;
+  }
+
+  .max-600-comentarios p span {
+    font-size: 20px !important;
+  }
+
+  .max-600-comentarios div input,
+  .max-600-comentarios div input::placeholder {
+    font-size: 13px !important;
+  }
+}

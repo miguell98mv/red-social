@@ -1,0 +1,22 @@
+<div
+  #appAllSolicitudes
+  class="max-600-post mt-4 h-100 mb-3 mx-auto d-block sombra rounded-3 scroll"
+  style="width: 100%; overflow-x: hidden !important"
+>
+  <h5 class="size-opciones pt-4 mb-2 gris roboto mx-auto">
+    Solicitudes de amistad
+  </h5>
+  <app-section-solicitud
+    *ngFor="let solicitud of solicitudes"
+    [solicitud]="solicitud"
+  ></app-section-solicitud>
+  <section *ngIf="!numSolicitudes" style="width: 100%" style="margin-top: 60px">
+    <p class="text-center pt-2 segoepr gris-claro size-nombres">
+      No hay solicitudes
+    </p>
+    <img
+      src="../../../assets//imagenes/solicitudes.svg"
+      style="width: 300px; margin: auto; display: flex; margin-bottom: 80px"
+    />
+  </section>
+</div>

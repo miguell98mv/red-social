@@ -1,0 +1,34 @@
+<div
+  class="max-600-post py-4 h-100 mx-auto d-block sombra rounded-3 scroll"
+  style="width: 100%; overflow-x: hidden !important"
+>
+  <h5 class="gris roboto size-opciones d-block mx-auto" style="width: 90%">
+    Amigos que conciden con "{{ personSearch }}"
+  </h5>
+
+  <section *ngIf="personasEncontradas | async as personasEncontradas">
+    <app-amigos-encontrados
+      *ngFor="let persona of personasEncontradas"
+      [persona]="persona"
+    ></app-amigos-encontrados>
+  </section>
+  <section
+    *ngIf="!(personasEncontradas | async)"
+    style="width: 100%"
+    style="margin-top: 60px"
+  >
+    <p class="text-center pt-2 segoepr gris-claro size-nombres">
+      No hay concidencias
+    </p>
+    <img
+      src="../../../assets//imagenes/notificacion.svg"
+      style="
+        width: 300px;
+        margin: auto;
+        display: flex;
+        margin-top: 30px;
+        margin-bottom: 70px;
+      "
+    />
+  </section>
+</div>

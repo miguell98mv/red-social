@@ -1,0 +1,16 @@
+<div class="pt-3 max-600-un-comentario">
+  <p class="segoepr m-0 p-0 dark size-comentarios fw-bold select-text">
+    <a
+      routerLink="/person/miguelValero"
+      class="text-decoration-none dark link-hover"
+      *ngIf="nameUser | async as nombre"
+      >{{ nombre[0]?.nameUser }}
+    </a>
+  </p>
+  <p
+    class="segoepr size-comentarios gris-claro m-0 p-0 select-text"
+    style="width: 100%"
+  >
+    {{ comentario.texto }}
+  </p>
+</div>

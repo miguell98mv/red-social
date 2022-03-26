@@ -1,0 +1,49 @@
+<div
+  class="p-0 mx-auto d-block overflow-hidden mx-auto max-600-AmigosEncontrados"
+>
+  <div
+    class="d-flex mx-auto position-relative overflow-visible pt-2"
+    style="width: 100%"
+  >
+    <span
+      *ngIf="!imagen"
+      class="material-icons position-relative"
+      style="font-size: 50px"
+    >
+      account_circle
+    </span>
+    <img
+      class="d-none rounded-circle mt-1 me-1"
+      style="width: 42px !important; height: 42px !important"
+      #spanImagen
+    />
+    <p class="segoepr w-50 dark size-parrafo fw-bold my-auto ms-3 h-fit">
+      <a routerLink="{{ url }}" class="text-decoration-none dark link-hover">
+        {{ persona?.nameUser }}</a
+      >
+    </p>
+    <button
+      (click)="addAmigo()"
+      *ngIf="isAmigo === 0"
+      class="myBtn size-parrafo roboto"
+      style="margin-left: 10px"
+    >
+      Agregar
+    </button>
+    <button
+      (click)="removeAmigo()"
+      *ngIf="isAmigo === 1"
+      class="myBtn size-parrafo roboto"
+      style="margin-left: 10px"
+    >
+      Cancelar
+    </button>
+    <p
+      *ngIf="isAmigo === 2"
+      class="amigo text-center h-fit px-2 py-1 size-nombres my-auto rounded"
+      style="margin-left: 10px"
+    >
+      amigos
+    </p>
+  </div>
+</div>

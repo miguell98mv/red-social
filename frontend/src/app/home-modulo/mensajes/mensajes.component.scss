@@ -1,0 +1,21 @@
+.max-600-mensajes div {
+  width: 90% !important;
+  margin: auto !important;
+}
+
+@media screen and (max-width: 600px) {
+  .max-600-mensajes {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    padding-bottom: 40px !important;
+  }
+
+  .max-600-mensajes div {
+    padding: 0 !important;
+    padding-top: 1rem !important;
+    margin: 0 !important;
+    width: 70% !important;
+    margin-bottom: 20px !important;
+  }
+}

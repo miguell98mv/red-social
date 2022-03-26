@@ -1,0 +1,68 @@
+<div class="p-0 mx-auto d-block py-1" style="width: 90%">
+  <div class="d-flex mx-auto position-relative" style="width: 100%s">
+    <span
+      *ngIf="!imagen"
+      class="material-icons position-relative"
+      style="font-size: 40px"
+    >
+      account_circle
+    </span>
+    <img
+      class="mx-auto mt-1 d-none rounded-circle"
+      style="width: 38px; height: 33px"
+      #spanImagen
+    />
+    <p
+      class="
+        text-nowrap
+        ellipsis
+        segoepr
+        dark
+        size-small
+        fw-bold
+        select-text
+        my-auto
+        ms-2
+        h-fit
+      "
+      style="width: 150px"
+    >
+      <a
+        routerLink="/person/miguelValero"
+        class="text-decoration-none dark link-hover"
+      >
+        {{ nameUser }}</a
+      >
+    </p>
+    <button
+      *ngIf="!aceptar && !cancelar"
+      (click)="aceptarPeticion()"
+      class="myBtn size-parrafo roboto w-fit mx-0"
+      style="margin-left: 10px !important"
+    >
+      Aceptar
+    </button>
+    <button
+      (click)="cancelarPeticion()"
+      *ngIf="!aceptar && !cancelar"
+      class="myBtn size-parrafo roboto w-fit mx-0"
+      style="margin-left: 10px !important"
+    >
+      Cancelar
+    </button>
+    <p
+      *ngIf="aceptar"
+      class="amigo text-center h-fit px-2 py-1 size-nombres my-auto rounded"
+      style="margin-left: 10px"
+    >
+      aceptado
+    </p>
+    <p
+      *ngIf="cancelar"
+      class="cancelado text-center h-fit px-2 py-1 size-nombres my-auto rounded"
+      style="margin-left: 10px"
+    >
+      rechazado
+    </p>
+  </div>
+</div>

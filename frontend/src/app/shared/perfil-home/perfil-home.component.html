@@ -1,0 +1,189 @@
+<div
+  class="col-2 h-100 position-fixed d-flex m-0 p-0 min-900"
+  style="background-color: #76289b"
+>
+  <div
+    class="
+      w-100
+      h-100
+      rounded-3
+      mx-auto
+      d-flex
+      flex-column
+      align-content-center
+      scroll
+    "
+    style="padding-bottom: 70px; padding-top: 10px"
+  >
+    <span
+      *ngIf="!imagen"
+      (click)="Inputimagen.click()"
+      class="
+        material-icons
+        w-100
+        text-center
+        position-relative
+        mx-auto
+        white
+        select-off
+      "
+      style="font-size: 130px; height: fit-content"
+    >
+      account_circle
+    </span>
+    <img
+      (click)="Inputimagen.click()"
+      class="mx-auto my-2 d-none rounded-circle"
+      style="width: 120px; height: 120px"
+      #spanImagen
+    />
+    <input #Inputimagen type="file" hidden />
+
+    <p
+      class="
+        w-75
+        mx-auto
+        my-0
+        text-center
+        select-text
+        size-nombres
+        white
+        segoepr
+        fw-bold
+      "
+    >
+      {{ usuario?.datos?.nameUser }}
+    </p>
+    <p
+      class="
+        w-75
+        mb-5
+        mx-auto
+        text-center
+        claro
+        segoepr
+        select-text
+        size-parrafo
+        fw-bold
+      "
+    >
+      {{ usuario?.datos?.profesion || "sin asignar" }}
+    </p>
+    <p
+      class="
+        w-75
+        mx-auto
+        my-0
+        text-center
+        white
+        segoepr
+        select-text
+        size-nombres
+        fw-bold
+      "
+    >
+      Ubicacion
+    </p>
+    <p
+      class="
+        w-75
+        mx-auto
+        text-center
+        claro
+        segoepr
+        select-text
+        size-parrafo
+        fw-bold
+      "
+    >
+      {{ usuario?.datos?.ubicacion || "sin asignar" }}
+    </p>
+    <p
+      class="
+        w-75
+        mx-auto
+        my-0
+        text-center
+        white
+        segoepr
+        select-text
+        size-nombres
+        fw-bold
+      "
+    >
+      Telefono
+    </p>
+    <p
+      class="
+        w-75
+        mx-auto
+        text-center
+        claro
+        segoepr
+        select-text
+        size-parrafo
+        fw-bold
+      "
+    >
+      {{ usuario?.datos?.telefono || "sin asignar" }}
+    </p>
+    <p
+      class="
+        w-75
+        mx-auto
+        my-0
+        text-center
+        white
+        segoepr
+        select-text
+        size-nombres
+        fw-bold
+      "
+    >
+      Pasatiempos
+    </p>
+    <p
+      class="
+        w-75
+        mx-auto
+        text-center
+        claro
+        segoepr
+        select-text
+        size-parrafo
+        fw-bold
+      "
+    >
+      {{ usuario?.datos?.que_te_gusta || "sin asignar" }}
+    </p>
+    <p
+      class="
+        w-75
+        mx-auto
+        my-0
+        text-center
+        white
+        segoepr
+        select-text
+        size-nombres
+        fw-bold
+      "
+    >
+      Genero musical preferido
+    </p>
+    <p
+      class="
+        w-75
+        mx-auto
+        text-center
+        claro
+        segoepr
+        select-text
+        size-parrafo
+        fw-bold
+      "
+    >
+      {{ usuario?.datos?.genero_musical || "sin asignar" }}
+    </p>
+  </div>
+</div>

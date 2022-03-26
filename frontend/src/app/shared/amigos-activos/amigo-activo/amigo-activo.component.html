@@ -1,0 +1,36 @@
+<div
+  (click)="eventClick()"
+  class="d-flex py-1 mx-auto position-relative overflow-visible select-pointer"
+  style="width: 90%"
+>
+  <span
+    *ngIf="!imagen"
+    class="material-icons position-relative"
+    style="font-size: 50px"
+  >
+    account_circle
+  </span>
+  <img
+    class="d-none rounded-circle mt-1"
+    style="width: 42px !important; height: 42px !important"
+    #spanImagen
+  />
+  <p
+    class="
+      text-nowrap
+      ellipsis
+      segoepr
+      w-50
+      dark
+      size-parrafo
+      fw-bold
+      my-auto
+      ms-2
+      h-fit
+    "
+    style="overflow-wrap: break-word"
+  >
+    {{ amigoActivo?.nameUser }}
+  </p>
+  <div class="activo"></div>
+</div>
